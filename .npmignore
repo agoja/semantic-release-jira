@@ -1,0 +1,15 @@
+.idea/
+test/
+test-config/
+lib/
+.git/
+.github/
+tsconfig.json
+tslint.json
+.gitignore
+.releaserc.yaml
+renovate.json
+*.log
+*.md
+!dist/
+!dist/**/*

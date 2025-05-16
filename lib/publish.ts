@@ -81,14 +81,14 @@ async function editIssueFixVersions(config: PluginConfig, context: GenerateNotes
         },
       });
     }
-  } catch (err) {
+  } catch (err: any) {
     const allowedStatusCodes = [400, 404];
-    let { statusCode } = err;
+    let statusCode = err?.statusCode;
     if (typeof err === 'string') {
       try {
-        err = JSON.parse(err);
-        statusCode = statusCode || err.statusCode;
-      } catch (err) {
+        const parsedError = JSON.parse(err);
+        statusCode = statusCode || parsedError.statusCode;
+      } catch (parseErr) {
           // it's not json :shrug:
       }
     }
