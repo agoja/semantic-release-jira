@@ -1,6 +1,6 @@
 {
   "name": "@agoja/semantic-release-jira-update",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "semantic-release plugin to publish a JIRA release with support for modern semantic-release versions",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",

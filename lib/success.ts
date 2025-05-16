@@ -41,6 +41,9 @@ export async function success(config: PluginConfig, context: GenerateNotesContex
       }
     }
     
+    // Create JIRA release URL
+    const jiraReleaseUrl = `https://${config.jiraHost}/projects/${config.projectId}/versions`;
+    
     // Format for Power Automate adaptive card webhook
     const adaptiveCard = {
       type: "message",
@@ -91,6 +94,11 @@ export async function success(config: PluginConfig, context: GenerateNotesContex
                     value: tickets.size > 0 ? Array.from(tickets).join(', ') : "None"
                   }
                 ]
+              },
+              {
+                type: "TextBlock",
+                text: `[View in JIRA](${jiraReleaseUrl})`,
+                wrap: true
               }
             ]
           }
@@ -173,6 +181,10 @@ export async function success(config: PluginConfig, context: GenerateNotesContex
                   {
                     "name": "Related tickets",
                     "value": tickets.size > 0 ? Array.from(tickets).join(', ') : "None"
+                  },
+                  {
+                    "name": "JIRA Link",
+                    "value": `[View in JIRA](${jiraReleaseUrl})`
                   }
                 ],
                 "markdown": true
@@ -209,7 +221,8 @@ export async function success(config: PluginConfig, context: GenerateNotesContex
                      `**Previous version:** ${lastRelease.version || "None"}\n` +
                      `**Type:** ${nextRelease.type}\n` +
                      `**Commits:** ${commits.length}\n` +
-                     `**Related tickets:** ${tickets.size > 0 ? Array.from(tickets).join(', ') : "None"}\n\n` +
+                     `**Related tickets:** ${tickets.size > 0 ? Array.from(tickets).join(', ') : "None"}\n` +
+                     `**JIRA Link:** [View in JIRA](${jiraReleaseUrl})\n\n` +
                      (nextRelease.notes ? `**Release Notes:**\n\n${nextRelease.notes}` : '')
             };
             
