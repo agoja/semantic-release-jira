@@ -56,7 +56,7 @@ export interface BaseConfig {
 }
 
 export const DEFAULT_VERSION_TEMPLATE = 'v${version}';
-export const DEFAULT_RELEASE_DESCRIPTION_TEMPLATE = 'Automated release with semantic-release-jira https://github.com/agoja/semantic-release-jira';
+export const DEFAULT_RELEASE_DESCRIPTION_TEMPLATE = 'Automated release with @agoja/semantic-release-jira-update https://github.com/agoja/semantic-release-jira';
 
 export interface PluginConfig extends BaseConfig {
   /**
@@ -100,7 +100,7 @@ export interface PluginConfig extends BaseConfig {
    *      notes: The full release notes: This may be very large
    *             Only use it if you have very small releases
    *
-   * @default `Automated release with semantic-release-jira https://github.com/agoja/semantic-release-jira`
+   * @default `Automated release with @agoja/semantic-release-jira-update https://github.com/agoja/semantic-release-jira`
    */
   releaseDescriptionTemplate?: string;
 

@@ -1,7 +1,7 @@
 {
-  "name": "semantic-release-jira",
+  "name": "@agoja/semantic-release-jira-update",
   "version": "0.8.0",
-  "description": "semantic-release plugin to publish a JIRA release",
+  "description": "semantic-release plugin to publish a JIRA release with support for modern semantic-release versions",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "repository": {
@@ -13,7 +13,8 @@
     "jira",
     "release",
     "version",
-    "publish"
+    "publish",
+    "update"
   ],
   "author": "Alex Goja (original author: UpHabit)",
   "license": "MIT",

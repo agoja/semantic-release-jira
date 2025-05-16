@@ -1,6 +1,6 @@
-# semantic-release-jira
+# @agoja/semantic-release-jira-update
 
-**semantic-release** plugin to publish a jira release.
+**semantic-release** plugin to publish a JIRA release. Updated for semantic-release v19+ with modern hooks.
 
 | Step             | Description                                                               |
 | ---------------- | ------------------------------------------------------------------------- |
@@ -10,9 +10,9 @@
 ## Install
 
 ```bash
-$ npm install --save-dev semantic-release-jira
+$ npm install --save-dev @agoja/semantic-release-jira-update
 # or
-$ yarn add --dev semantic-release-jira
+$ yarn add --dev @agoja/semantic-release-jira-update
 ```
 
 ### Configuration
@@ -25,7 +25,7 @@ The plugin should be added to your config
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     "@semantic-release/git",
-    ["semantic-release-jira", {
+    ["@agoja/semantic-release-jira-update", {
       "projectId": "UH",
       "releaseNameTemplate": "Test v${version}",
       "jiraHost": "uphabit.atlassian.net",
@@ -103,4 +103,8 @@ interface Config {
 
 ## About
 
-Fork of [semantic-release-jira-releases](https://github.com/UpHabit/semantic-release-jira-releases) updated to work with semantic-release v19+ by using the publish hook instead of the deprecated success hook.
+This is a modern fork of [semantic-release-jira-releases](https://github.com/UpHabit/semantic-release-jira-releases) updated to work with semantic-release v19+ by using the publish hook instead of the deprecated success hook. The plugin automatically creates releases in Jira and links all referenced tickets in commit messages to that release.
+
+## Publishing
+
+This package is published under the `@agoja` scope on npm and can be used in any project that requires integration between semantic-release and Jira.
