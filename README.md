@@ -6,6 +6,7 @@
 | ---------------- | ------------------------------------------------------------------------- |
 | verifyConditions | Validate the config options and check for a JIRA_AUTH in the environment  |
 | publish          | Find all tickets from commits and add them to a new release on JIRA       |
+| success          | Send a notification to Microsoft Teams when a release is successful       |
 
 ## Install
 
@@ -30,13 +31,27 @@ The plugin should be added to your config
       "releaseNameTemplate": "Test v${version}",
       "jiraHost": "uphabit.atlassian.net",
       "ticketPrefixes": [ "TEST", "UH"],
-      "ticketRegex": "[a-zA-Z]{3,5}-\\d{3,5}"
+      "ticketRegex": "[a-zA-Z]{3,5}-\\d{3,5}",
+      "released": true,
+      "setReleaseDate": true
     }]
   ]
 }
 ```
 
 Please note that `ticketRegex` cannot be used together with `ticketPrefixes`.
+
+## Environment Variables
+
+### Required
+
+- `JIRA_AUTH`: A Base64 encoded string of your Jira credentials (`username:apiToken`)
+
+### Optional
+
+- `TEAMS_WEBHOOK_URL`: Microsoft Teams webhook URL for notifications. If provided, a notification will be sent to Teams when a release is successful.
+
+## API
 
 ```typescript
 interface Config {
@@ -100,6 +115,13 @@ interface Config {
   setReleaseDate?: boolean;
 }
 ```
+
+## Features
+
+1. **JIRA Integration**: Creates a new version in JIRA and associates tickets mentioned in commits with that version
+2. **Microsoft Teams Notifications**: Sends a notification to Microsoft Teams when a release is successful (requires the TEAMS_WEBHOOK_URL environment variable)
+3. **Release Date Support**: Optionally mark releases with the current date
+4. **Released Status**: Optionally mark releases as "released" in JIRA
 
 ## About
 
