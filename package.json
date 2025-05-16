@@ -1,6 +1,6 @@
 {
   "name": "@agoja/semantic-release-jira-update",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "semantic-release plugin to publish a JIRA release with support for modern semantic-release versions",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
@@ -31,7 +31,7 @@
     "@types/request": "^2.48.8",
     "jira-connector": "^3.1.0",
     "lodash": "^4.17.21",
-    "p-limit": "^4.0.0",
+    "p-limit": "^3.1.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
